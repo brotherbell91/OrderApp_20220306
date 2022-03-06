@@ -35,6 +35,7 @@ class StoreAdapter(
 
         txtName.text = data.name
         Glide.with(mContext).load(data.logoUrl).into(imgLogo)
+        scoreRatingBar.rating = data.score.toFloat()
 
 
 
