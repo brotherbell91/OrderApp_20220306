@@ -5,8 +5,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
+import android.widget.ImageView
+import android.widget.TextView
 import com.hyeongjong.orderapp_20220306.R
 import com.hyeongjong.orderapp_20220306.datas.StoreData
+import com.willy.ratingbar.BaseRatingBar
 
 class StoreAdapter(
     val mContext : Context,
@@ -22,6 +25,16 @@ class StoreAdapter(
         }
 
         val row = tempRow!!
+
+        val data = mList[position]
+
+        val imgLogo = row.findViewById<ImageView>(R.id.imgLogo)
+        val txtName = row.findViewById<TextView>(R.id.txtName)
+        val scoreRatingBar = row.findViewById<BaseRatingBar>(R.id.scoreRatingBar)
+
+        txtName.text = data.name
+
+
 
         return row
 
