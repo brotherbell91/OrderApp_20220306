@@ -40,6 +40,7 @@ class StoreAdapter(
 
 
 
+
         return row
 
 
