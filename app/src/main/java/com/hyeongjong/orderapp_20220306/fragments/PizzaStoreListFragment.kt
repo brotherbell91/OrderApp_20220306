@@ -1,11 +1,13 @@
 package com.hyeongjong.orderapp_20220306.fragments
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.hyeongjong.orderapp_20220306.R
+import com.hyeongjong.orderapp_20220306.ViewStoreDetailActivity
 import com.hyeongjong.orderapp_20220306.adapters.StoreAdapter
 import com.hyeongjong.orderapp_20220306.datas.StoreData
 import kotlinx.android.synthetic.main.fragment_pizza_stroe_list.*
@@ -33,6 +35,18 @@ class PizzaStoreListFragment : Fragment() {
 
         mPizzaStoreAdapter = StoreAdapter(requireContext(), R.layout.store_list_item, mPizzaStoreList)
         pizzaStoreListView.adapter = mPizzaStoreAdapter
+
+        pizzaStoreListView.setOnItemClickListener { adapterView, view, position, l ->
+
+            val clickedStore = mPizzaStoreList[position]
+
+            val myIntent = Intent(requireContext(), ViewStoreDetailActivity::class.java)
+
+            myIntent.putExtra("store", clickedStore)
+
+            startActivity(myIntent)
+
+        }
 
 
 
